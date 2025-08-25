@@ -986,10 +986,17 @@ section {
 }
 
 .contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-xl);
+    display: flex;
+    justify-content: center;
     align-items: center;
+}
+
+.contact-info.centered {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    max-width: 600px;
+    width: 100%;
 }
 
 .contact-item {
@@ -1212,9 +1219,9 @@ section {
         gap: var(--spacing-md);
     }
 
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-lg);
+    .contact-info.centered {
+        max-width: 100%;
+        gap: var(--spacing-md);
     }
 
     .hero-buttons {
