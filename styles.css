@@ -266,6 +266,15 @@ body {
     50% { background-position: 100% 50%; }
 }
 
+.chinese-name {
+    display: block;
+    font-size: 0.6em;
+    color: var(--text-secondary);
+    font-weight: 400;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
 .hero-subtitle {
     font-size: 1.5rem;
     font-weight: 400;
@@ -662,6 +671,63 @@ section {
     font-weight: 600;
 }
 
+/* New About Profile Layout */
+.about-profile {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-lg);
+}
+
+.profile-card-new {
+    background: var(--bg-primary);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-xl);
+    text-align: center;
+    box-shadow: var(--shadow-xl);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    max-width: 400px;
+    width: 100%;
+}
+
+.profile-card-new::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--primary-gradient);
+}
+
+.profile-card-new:hover {
+    transform: translateY(-10px);
+}
+
+.profile-card-new h3 {
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-xs);
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.profile-card-new .job-title {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+    font-weight: 500;
+}
+
+.profile-card-new .profile-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
 /* Experience Section */
 .experience {
     background: var(--bg-primary);
@@ -728,6 +794,29 @@ section {
 
 .timeline-marker:hover {
     transform: translateX(-50%) scale(1.1);
+}
+
+.alibaba-marker svg {
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.4));
+    transition: all 0.3s ease;
+}
+
+.alibaba-marker:hover svg {
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.7));
+    transform: scale(1.05);
+}
+
+.alibaba-marker svg ellipse,
+.alibaba-marker svg path {
+    transition: all 0.3s ease;
+}
+
+.alibaba-marker:hover svg ellipse[fill="white"] {
+    opacity: 1;
+}
+
+.alibaba-marker:hover svg path {
+    stroke: rgba(255, 255, 255, 0.7);
 }
 
 .timeline-content {
@@ -844,6 +933,80 @@ section {
 .achievement-label {
     font-size: 0.8rem;
     color: var(--text-secondary);
+}
+
+/* Education Section */
+.education {
+    background: var(--bg-secondary);
+    position: relative;
+}
+
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-lg);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.education-card {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.education-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(102, 126, 234, 0.2);
+}
+
+.education-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--primary-gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-white);
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.education-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.education-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.education-info .major {
+    color: var(--text-primary);
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.education-info .university {
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+}
+
+.education-info .duration {
+    color: var(--text-light);
+    font-size: 0.85rem;
 }
 
 /* Skills Section */
@@ -1214,6 +1377,11 @@ section {
         border-left-color: transparent !important;
     }
 
+    .education-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--spacing-md);
@@ -1260,6 +1428,17 @@ section {
     .timeline-meta {
         flex-direction: column;
         gap: var(--spacing-xs);
+    }
+
+    .education-card {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-sm);
+    }
+
+    .education-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
     }
 
     .skills-grid {
